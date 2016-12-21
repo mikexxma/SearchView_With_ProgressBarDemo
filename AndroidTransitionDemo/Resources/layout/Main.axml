@@ -11,4 +11,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/searchView1" />
+    <View
+        android:layout_margin="10dp"
+        android:id="@+id/square_blue"
+        android:layout_width="50dp"
+        android:background="@android:color/holo_blue_light"
+        android:transitionName="profile"
+        android:layout_height="50dp" />
 </LinearLayout>

@@ -11,13 +11,26 @@ namespace AndroidTransitionDemo
     public class MainActivity : Activity
     {
         SearchView sv;
+        View squareBlue;
+
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
             // Set our view from the "main" layout resource
             SetContentView (Resource.Layout.Main);
             sv = FindViewById<SearchView>(Resource.Id.searchView1);
+            squareBlue = FindViewById(Resource.Id.square_blue);
+            squareBlue.Click += Squire_Click;
             showProgressBar(sv, this);   
+        }
+
+        private void Squire_Click(object sender, System.EventArgs e)
+        {
+             View sharedView = squareBlue;
+            string transitionName = "profile";
+            Intent i = new Intent(this,typeof(Activity1));
+            ActivityOptions transitionActivityOptions = ActivityOptions.MakeSceneTransitionAnimation(this, sharedView, transitionName);
+            StartActivity(i, transitionActivityOptions.ToBundle());
         }
 
         void showProgressBar(SearchView searchView, Context context)
